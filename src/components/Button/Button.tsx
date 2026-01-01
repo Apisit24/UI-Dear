@@ -2,7 +2,6 @@
 
 import { motion, HTMLMotionProps } from 'framer-motion';
 import { forwardRef } from 'react';
-import styles from './Button.module.css';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -15,6 +14,20 @@ export interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'ref'> {
     rightIcon?: React.ReactNode;
     fullWidth?: boolean;
 }
+
+const variantStyles: Record<ButtonVariant, string> = {
+    primary: 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]',
+    secondary: 'bg-[var(--bg-secondary)] text-[var(--text)] border border-[var(--border)] hover:bg-[var(--bg-tertiary)]',
+    outline: 'bg-transparent text-[var(--color-primary)] border-2 border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white',
+    ghost: 'bg-transparent text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]',
+    danger: 'bg-[var(--color-danger)] text-white hover:bg-[var(--color-accent-hover)]',
+};
+
+const sizeStyles: Record<ButtonSize, string> = {
+    sm: 'px-3 py-1.5 text-sm gap-1.5',
+    md: 'px-4 py-2.5 text-sm gap-2',
+    lg: 'px-6 py-3 text-base gap-2',
+};
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     (
@@ -32,21 +45,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         },
         ref
     ) => {
-        const classNames = [
-            styles.button,
-            styles[variant],
-            styles[size],
-            fullWidth ? styles.fullWidth : '',
-            isLoading ? styles.loading : '',
-            className,
-        ]
-            .filter(Boolean)
-            .join(' ');
+        const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors';
+        const widthStyles = fullWidth ? 'w-full' : '';
+        const disabledStyles = disabled || isLoading ? 'opacity-60 cursor-not-allowed' : '';
 
         return (
             <motion.button
                 ref={ref}
-                className={classNames}
+                className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${widthStyles} ${disabledStyles} ${className}`}
                 disabled={disabled || isLoading}
                 whileHover={{ scale: disabled || isLoading ? 1 : 1.02 }}
                 whileTap={{ scale: disabled || isLoading ? 1 : 0.98 }}
@@ -54,8 +60,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 {...props}
             >
                 {isLoading && (
-                    <span className={styles.spinner}>
-                        <svg viewBox="0 0 24 24" fill="none" className={styles.spinnerIcon}>
+                    <span className="animate-spin">
+                        <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
                             <circle
                                 cx="12"
                                 cy="12"
@@ -69,9 +75,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                         </svg>
                     </span>
                 )}
-                {!isLoading && leftIcon && <span className={styles.icon}>{leftIcon}</span>}
+                {!isLoading && leftIcon && <span>{leftIcon}</span>}
                 <span>{children as React.ReactNode}</span>
-                {!isLoading && rightIcon && <span className={styles.icon}>{rightIcon}</span>}
+                {!isLoading && rightIcon && <span>{rightIcon}</span>}
             </motion.button>
         );
     }

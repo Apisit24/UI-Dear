@@ -149,7 +149,7 @@ export default function HomePage() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <p className="text-lg text-[var(--text-secondary)]">
-          Browse different UI styles and get inspired for your next project ✨
+          Browse different UI styles and get inspired for your next project
         </p>
       </motion.section>
     </div>
