@@ -8,6 +8,7 @@ import {
     ProfileCard,
     PricingCard,
 } from '@/components/Card';
+import { Phone, Volume2, Watch } from 'lucide-react';
 
 export default function CardShowcase() {
     return (
@@ -56,7 +57,7 @@ export default function CardShowcase() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <ProductCard
-                        emoji="📱"
+                        emoji={<Phone />}
                         category="Electronics"
                         categoryColor="var(--color-primary)"
                         title="iPhone 16 Pro"
@@ -68,7 +69,7 @@ export default function CardShowcase() {
                         gradientTo="#FFDE63"
                     />
                     <ProductCard
-                        emoji="🎧"
+                        emoji={<Volume2 />}
                         category="Audio"
                         categoryColor="#10b981"
                         title="AirPods Pro"
@@ -80,7 +81,7 @@ export default function CardShowcase() {
                         gradientTo="#06b6d4"
                     />
                     <ProductCard
-                        emoji="⌚"
+                        emoji={<Watch />}
                         category="Wearables"
                         categoryColor="#ec4899"
                         title="Apple Watch Ultra"

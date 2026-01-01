@@ -86,7 +86,7 @@ ShadowCard.displayName = 'ShadowCard';
 // Product Card
 // ============================================
 export interface ProductCardProps extends BaseCardProps {
-    emoji: string;
+    emoji: ReactNode;
     category: string;
     categoryColor?: string;
     title: string;
