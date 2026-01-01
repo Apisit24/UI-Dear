@@ -40,6 +40,7 @@ export function Sidebar() {
             {/* Header */}
             <div className="p-6 border-b border-white/10">
                 <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white no-underline">
+                    {/* <img src="icon.png" width={40} height={40} alt="" /> */}
                     <Heart size={28} className="text-[#FF3838]" />
                     <span>UI Dear</span>
                 </Link>
