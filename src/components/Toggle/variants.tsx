@@ -80,7 +80,7 @@ export interface CheckboxProps {
     disabled?: boolean;
 }
 
-export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
     ({
         checked = false,
         onChange,
@@ -136,7 +136,7 @@ export interface RadioButtonProps {
     disabled?: boolean;
 }
 
-export const RadioButton = forwardRef<HTMLDivElement, RadioButtonProps>(
+export const RadioButton = forwardRef<HTMLLabelElement, RadioButtonProps>(
     ({
         selected = false,
         onChange,
