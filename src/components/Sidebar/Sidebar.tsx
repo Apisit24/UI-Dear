@@ -13,7 +13,8 @@ import {
     Loader,
     Home,
     Box,
-    MessageSquare
+    MessageSquare,
+    AlertCircle
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
@@ -32,6 +33,7 @@ const designItems: NavItem[] = [
     { label: 'Loaders', href: '/components/loader', icon: <Loader size={18} /> },
     { label: 'Containers', href: '/components/container', icon: <Box size={18} /> },
     { label: 'Toasts', href: '/components/toast', icon: <MessageSquare size={18} /> },
+    { label: 'Alerts', href: '/components/alert', icon: <AlertCircle size={18} /> },
 ];
 
 export function Sidebar() {

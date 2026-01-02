@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Toast, ToastProvider, useToast } from '@/components/Toast';
+import { Alert } from '@/components/Alert';
 import { Bell } from 'lucide-react';
 
 // Demo component that uses the toast hook
@@ -68,7 +69,10 @@ function ToastDemo() {
                         type: 'info',
                         title: 'With action',
                         message: 'Click undo to revert',
-                        action: { label: 'Undo', onClick: () => alert('Undo clicked!') }
+                        action: {
+                            label: 'Undo',
+                            onClick: () => addToast({ type: 'success', title: 'Undo clicked!', message: 'Action reverted.' })
+                        }
                     })}
                     className="px-4 py-2 text-[#050E3C] font-medium border border-[var(--border)] rounded-lg"
                     whileHover={{ scale: 1.05 }}
