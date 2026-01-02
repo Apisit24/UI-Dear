@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Square, Type, Layers, ToggleLeft, Layout, Loader, Box, ArrowRight } from 'lucide-react';
+import { Square, Type, Layers, ToggleLeft, Layout, Loader, Box, ArrowRight, MessageSquare, AlertCircle } from 'lucide-react';
 
 const categories = [
   {
@@ -51,8 +51,22 @@ const categories = [
     title: 'Containers',
     href: '/components/container',
     icon: <Box size={28} />,
-    description: 'Boxes, Panels, Alerts',
+    description: 'Boxes, Panels, Sections',
     color: '#06b6d4'
+  },
+  {
+    title: 'Toasts',
+    href: '/components/toast',
+    icon: <MessageSquare size={28} />,
+    description: 'Notifications, Snackbars',
+    color: '#FF3838'
+  },
+  {
+    title: 'Alerts',
+    href: '/components/alert',
+    icon: <AlertCircle size={28} />,
+    description: 'Banners, Messages, Warnings',
+    color: '#DC0000'
   },
 ];
 
