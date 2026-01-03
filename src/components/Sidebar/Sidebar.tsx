@@ -14,7 +14,8 @@ import {
     Home,
     Box,
     MessageSquare,
-    AlertCircle
+    AlertCircle,
+    Maximize2
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
@@ -34,6 +35,7 @@ const designItems: NavItem[] = [
     { label: 'Containers', href: '/components/container', icon: <Box size={18} /> },
     { label: 'Toasts', href: '/components/toast', icon: <MessageSquare size={18} /> },
     { label: 'Alerts', href: '/components/alert', icon: <AlertCircle size={18} /> },
+    { label: 'Modals', href: '/components/modal', icon: <Maximize2 size={18} /> },
 ];
 
 export function Sidebar() {

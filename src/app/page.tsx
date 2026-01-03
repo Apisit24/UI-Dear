@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Square, Type, Layers, ToggleLeft, Layout, Loader, Box, ArrowRight, MessageSquare, AlertCircle } from 'lucide-react';
+import { Square, Type, Layers, ToggleLeft, Layout, Loader, Box, ArrowRight, MessageSquare, AlertCircle, Maximize2 } from 'lucide-react';
 
 const categories = [
   {
@@ -67,6 +67,13 @@ const categories = [
     icon: <AlertCircle size={28} />,
     description: 'Banners, Messages, Warnings',
     color: '#DC0000'
+  },
+  {
+    title: 'Modals',
+    href: '/components/modal',
+    icon: <Maximize2 size={28} />,
+    description: 'Dialogs, Popups, Overlays',
+    color: '#8b5cf6'
   },
 ];
 
