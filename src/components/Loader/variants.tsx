@@ -16,7 +16,7 @@ export interface SpinnerProps {
 }
 
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
-    ({ variant = 'basic', size = 40, color = 'var(--color-primary)', label }, ref) => {
+    ({ variant = 'basic', size = 40, color = '#FF3838', label }, ref) => {
         const renderSpinner = () => {
             switch (variant) {
                 case 'basic':
@@ -35,7 +35,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
                         <div className="relative" style={{ width: size, height: size }}>
                             <div
                                 className="absolute inset-0 border-4 border-transparent rounded-full animate-spin"
-                                style={{ borderTopColor: color, borderBottomColor: 'var(--color-accent)' }}
+                                style={{ borderTopColor: color, borderBottomColor: '#002455' }}
                             />
                         </div>
                     );
@@ -140,14 +140,14 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
         label,
         showValue = true,
         height = 8,
-        color = 'var(--color-primary)',
+        color = '#FF3838',
     }, ref) => {
         const renderProgress = () => {
             switch (variant) {
                 case 'gradient':
                     return (
                         <motion.div
-                            className="h-full rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)]"
+                            className="h-full rounded-full bg-gradient-to-r from-[#FF3838] to-[#002455]"
                             initial={{ width: 0 }}
                             animate={{ width: `${value}%` }}
                             transition={{ duration: 1 }}
@@ -328,7 +328,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
         size = 64,
         strokeWidth = 8,
         variant = 'basic',
-        color = 'var(--color-primary)',
+        color = '#FF3838',
         showValue = true,
     }, ref) => {
         const radius = 40;
@@ -372,8 +372,8 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
                     {variant === 'gradient' && (
                         <defs>
                             <linearGradient id="circularGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="var(--color-primary)" />
-                                <stop offset="100%" stopColor="var(--color-accent)" />
+                                <stop offset="0%" stopColor="#FF3838" />
+                                <stop offset="100%" stopColor="#002455" />
                             </linearGradient>
                         </defs>
                     )}
